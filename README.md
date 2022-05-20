@@ -2,9 +2,26 @@
 
 This project is still under early development and really buggy. Think twice if you want to use it.
 
+## Demonstration
+
+https://www.reddit.com/r/Portal/comments/ut63gx/i_made_a_small_tool_to_play_still_alive_in_actual/
+
 ## GLaDPlayer
 
-A small music visualizing tool in terminal.
+"Genetic Lifeform and Disk Player" - A small terminal based music visualizing gadget written in python.
+The name is inspired by Valve's famous game "Portal".
+
+## To do list
+
+* Automatically change tmux split direction by detecting terminal scale
+* Add a new panel to display another effects
+* Automatically clear the lyrics if it reached the maxium lines in terminal
+* Add some decorations to tmux panels
+* Add an option to change the lyrics displaying method
+* Add a custom exit hot key
+* Add error handler
+* Add a installation script (maybe)
+* ~~Bake a cake~~
 
 ## ~~Bugs~~Features
 
@@ -34,13 +51,13 @@ If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc`, then
 
 ## Play with ascii art
 
-You should first copy-pasta your favorite ascii into a new *.txt file and put them into the `ascii` folder. (or not, if you think the default ones are ok)
+You should first copy-pasta your favorite ascii into a new `*.txt` file and put them into the `ascii` folder. (or not, if you think the default ones are ok)
 
-Then create a `*.ascii` file in this repository's main directory, it should be looking like this:
+Then create a `<song file's name>.ascii` file in this repository's main directory, it should be looking like this:
 
 ```
 [00:00.00]
-[minutes:seconds.decimal_seconds]<Your ascii file's name>
+[minutes:seconds]<Your ascii file's name>
 ...
 ```
 The things in square brackets are timestamps, it'll decide when it display your specified ascii art in your terminal.
