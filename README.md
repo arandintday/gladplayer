@@ -9,7 +9,7 @@ https://www.reddit.com/r/Portal/comments/ut63gx/i_made_a_small_tool_to_play_stil
 ## GLaDPlayer
 
 "Genetic Lifeform and Disk Player" - A small terminal based music visualizing gadget written in python.
-The name is inspired by Valve's famous game "Portal".
+The name is inspired by Valve's famous video game "Portal".
 
 ## To do list
 
@@ -17,9 +17,11 @@ The name is inspired by Valve's famous game "Portal".
 * Add a new panel to display another effects
 * Automatically clear the lyrics if it reached the maxium lines in terminal
 * Add some decorations to tmux panels
-* Add an option to change the lyrics displaying method
+* ~~Add an option to change the lyrics displaying method~~Done
 * Add a custom exit hot key
-* Add error handler
+* ~~Add error handler~~Done
+* Add more file type support
+* Add custom command support (maybe)
 * Add a installation script (maybe)
 * ~~Bake a cake~~
 
@@ -40,13 +42,21 @@ The name is inspired by Valve's famous game "Portal".
 
 Clone this repository and put some `*.mp3` and `*.lrc` files in it's main directory. (Their name should be the same) Then open your terminal, enter this directory and run
 ```shell
-./main.sh <your song file name>
+./main.sh <your song file name> <display_effect(optional)>
 ```
-Example:
 
-If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc`, then your command will be
+Lyrics display effects:
+* 1
+* * The type writer effect(Default)
+* 2
+* * No effect
+* 3
+* * Highlight effect
+
+Example:
+If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc` and you want using the highlight effect, then your command will be
 ```shell
-./main.sh sus
+./main.sh sus 3
 ```
 
 ## Play with ascii art

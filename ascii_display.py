@@ -1,14 +1,20 @@
 #!/bin/env python
-from datetime import datetime
 import re
 import sys
 import time
 import datetime
 import os
+import subprocess
+
+CLI_PATTERN = '$'
 
 def read_file(filename):
-    f = open(filename, 'r+')
-    return f.read()
+    try:
+        f = open(filename, 'r+')
+        return f.read()
+    except:
+        print("[-] ASCII file not found!")
+        sys.exit()
 
 def split_by_lines(filecontent):
     return filecontent.split("\n")
@@ -16,19 +22,14 @@ def split_by_lines(filecontent):
 def parse_timestamp(filecontent):
     pattern = re.compile(r'\[([0-9]*):([0-9]*)\.([0-9]*)\]')
     time_delay = []
-    #In developing
     for l in filecontent:
         try:
             matchResult = pattern.match(l)
-            #matchResult = pattern.match("[33:4.214]anfaifncoanca")
-            #print(matchResult.groups())
             secs = float("{}.{}".format(matchResult.group(2), matchResult.group(3)))
             mins = float(matchResult.group(1))
             total_secs = datetime.timedelta(minutes=mins,seconds=secs).total_seconds()
-            #print(total_secs)
             time_delay.append(total_secs)
         except Exception as e:
-            #print("[-] E:{}".format(e))
             continue
     return time_delay
 
@@ -36,7 +37,6 @@ def calculate_diff(time_stamp):
     diff = []
     for i in range(1,len(time_stamp)):
         diff.append(round(time_stamp[i] - time_stamp[i-1], 3))
-        #diff.append(time_stamp[i] - time_stamp[i-1])
     diff.append(0.0)
     return diff
 
@@ -51,11 +51,22 @@ def get_ascii_name(filecontent):
 
 def print_ascii_art(content, duration):
     if len(content) > 0:
-        try:
-            os.system("clear && cat './ascii/{}.txt'".format(content))
-        except:
-            print("ASCII art file load failed!")
-        time.sleep(duration)
+        if CLI_PATTERN in content:
+            try:
+                #not working
+                os.system("timeout {}s {}".format(duration,content[content.index(CLI_PATTERN)+1:]))
+                #still not working
+                #command_list = content[content.index(CLI_PATTERN)+1:].split(" ")
+                #print(command_list)
+                #process = subprocess.run(commands_list, timeout=duration, text=True, capture_output=True)
+            except:
+                print("Command run failed!")
+        else:
+            try:
+                os.system("clear && cat './ascii/{}.txt'".format(content))
+            except:
+                print("ASCII art file load failed!")
+            time.sleep(duration)
     else:
         time.sleep(duration)
     return 0

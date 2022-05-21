@@ -8,4 +8,4 @@ split_screen(){
 	tmux select-layout -t $session_name:0 even-horizontal
 	tmux attach-session -t $session_name
 }
-split_screen "./play_song.sh $1" "./ascii_display.py $1"
+split_screen "./play_song.sh $1 $2" "./ascii_display.py $1"
