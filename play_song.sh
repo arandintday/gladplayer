@@ -2,18 +2,18 @@
 
 #Judge if it's Termux
 judge_terminal(){
-	getprop > /dev/null 2>&1
-	if [ $? -eq 0 ];then
-    		#clear
-    		#nohup play-audio $1.mp3 > /dev/null 2>&1 &
-    		#./lyrics_display.py $1
-		termux_method $1 $2
-	else
-    		#clear
-		#nohup mplayer $1.mp3 > /dev/null 2>&1 &
-    		#./lyrics_display.py $1
-		linux_method $1 $2
-	fi
+	os_name=$(uname -o)
+	case $os_name in
+		"Android")
+			termux_method $1 $2
+			;;
+		"GNU/Linux")
+			linux_method $1 $2
+			;;
+		*)
+			echo "Not supported os, quitting..."
+			;;
+	esac
 }
 
 #judge if files are exist

@@ -54,7 +54,7 @@ def print_ascii_art(content, duration):
         if CLI_PATTERN in content:
             try:
                 #not working
-                os.system("timeout {}s {}".format(duration,content[content.index(CLI_PATTERN)+1:]))
+                os.system("".format(duration,content[content.index(CLI_PATTERN)+1:]))
                 #still not working
                 #command_list = content[content.index(CLI_PATTERN)+1:].split(" ")
                 #print(command_list)
