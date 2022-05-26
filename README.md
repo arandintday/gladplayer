@@ -14,14 +14,14 @@ The name is inspired by Valve's famous video game "Portal".
 ## To do list
 
 * Automatically change tmux split direction by detecting terminal scale
-* Add a new panel to display another effects
+* ~~Add a new panel to display another effects~~Done
 * Automatically clear the lyrics if it reached the maxium lines in terminal
 * Add some decorations to tmux panels
 * ~~Add an option to change the lyrics displaying method~~Done
 * Add a custom exit hot key
 * ~~Add error handler~~Done
 * Add more file type support
-* Add custom command support (maybe)
+* Add custom command support in ascii file(maybe)
 * Add a installation script (maybe)
 * ~~Bake a cake~~
 
@@ -29,6 +29,7 @@ The name is inspired by Valve's famous video game "Portal".
 
 * Print lyrics in your terminal (Mostly synchronous with music)
 * Print ASCII art in your terminal (ascii file is needed)
+* Can display any custom command in an additional panel
 * Can run in Android (With Termux)
 
 ## Requirements
@@ -42,21 +43,21 @@ The name is inspired by Valve's famous video game "Portal".
 
 Clone this repository and put some `*.mp3` and `*.lrc` files in it's main directory. (Their name should be the same) Then open your terminal, enter this directory and run
 ```shell
-./main.sh <your song file name> <display_effect(optional)>
+./main.sh <your song file name> <display_effect(optional)> <Your custom command(optional)>
 ```
 
 Lyrics display effects:
-* 1
- * The type writer effect(Default)
-* 2
- * No effect
-* 3
- * Highlight effect
+1
+* The type writer effect(Default)
+2
+* No effect
+3
+* Highlight effect
 
 Example:
-If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc` and you want using the highlight effect, then your command will be
+If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc` and you want using the highlight effect and let the third panel run htop, then your command will be:
 ```shell
-./main.sh sus 3
+./main.sh sus 3 htop
 ```
 
 ## Play with ascii art
