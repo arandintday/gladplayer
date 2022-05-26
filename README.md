@@ -47,12 +47,12 @@ Clone this repository and put some `*.mp3` and `*.lrc` files in it's main direct
 ```
 
 Lyrics display effects:
-1
-* The type writer effect(Default)
-2
-* No effect
-3
-* Highlight effect
+* 1
+  * The type writer effect(Default)
+* 2
+  * No effect
+* 3
+  * Highlight effect
 
 Example:
 If your song's file name is `sus.mp3` and the lyric file name is `sus.lrc` and you want using the highlight effect and let the third panel run htop, then your command will be:
